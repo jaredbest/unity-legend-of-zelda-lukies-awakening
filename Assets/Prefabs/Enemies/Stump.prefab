@@ -198,12 +198,14 @@ MonoBehaviour:
   enemyName: Stump
   baseAttack: 1
   moveSpeed: 1.5
+  homePosition: {x: 0, y: 0}
   deathEffect: {fileID: 768771868391847558, guid: 75291a874d9f85b49a6ddfd80dd1de6c, type: 3}
+  thisLoot: {fileID: 11400000, guid: 9f328d98cde31454f87f3b11dd8a3a78, type: 2}
+  roomSignal: {fileID: 0}
   myRigidbody: {fileID: 0}
   target: {fileID: 0}
   chaseRadius: 5
   attackRadius: 1
-  homePosition: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &7784235766401138640
 MonoBehaviour:

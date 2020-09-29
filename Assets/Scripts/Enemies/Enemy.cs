@@ -20,20 +20,44 @@ public class Enemy : MonoBehaviour {
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+    public Vector2 homePosition;
 
     [Header ("Death Effects")]
     public GameObject deathEffect;
     private float deathEffectDelay = 1f;
+    public LootTable thisLoot;
+
+    [Header ("Death Signals")]
+    public SignalGame roomSignal;
 
     private void Awake () {
         health = maxHealth.initialValue;
+    }
+
+    private void OnEnable () {
+        transform.position = homePosition;
+        health = maxHealth.initialValue;
+        currentState = EnemyState.idle;
     }
 
     private void TakeDamage (float damage) {
         health -= damage;
         if (health <= 0) {
             DeathEffect ();
+            DropLoot ();
+            if (roomSignal != null) {
+                roomSignal.Raise ();
+            }
             this.gameObject.SetActive (false);
+        }
+    }
+
+    private void DropLoot () {
+        if (thisLoot != null) {
+            PowerUp current = thisLoot.LootPowerUp ();
+            if (current != null) {
+                Instantiate (current.gameObject, transform.position, Quaternion.identity);
+            }
         }
     }
 

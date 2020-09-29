@@ -17,7 +17,7 @@ public class LockedDoor : Interactable {
     public BoxCollider2D physicsCollider;
 
     private void Update () {
-        if (Input.GetKeyDown (KeyCode.Space)) {
+        if (Input.GetButtonDown ("attack")) {
             if (isPlayerInRange && thisDoorType == DoorType.key) {
                 //Does the player have a key?
                 if (playerInventory.numberOfKeys > 0) {
@@ -40,6 +40,11 @@ public class LockedDoor : Interactable {
     }
 
     public void Close () {
-
+        //Turn on the door's sprite renderer
+        doorSprite.enabled = true;
+        //set open to false
+        open = false;
+        //turn on the door's box collider
+        physicsCollider.enabled = true;
     }
 }

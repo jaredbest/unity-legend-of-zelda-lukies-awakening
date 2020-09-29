@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Breakable
   - Enemy
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - Enemy
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -58,9 +59,15 @@ TagManager:
   - name: Player
     uniqueID: 1525350117
     locked: 0
+  - name: Enemy
+    uniqueID: 2850999761
+    locked: 0
   - name: Context Clues
     uniqueID: 1123659429
     locked: 0
   - name: Received Items
     uniqueID: 796874023
+    locked: 0
+  - name: Projectiles
+    uniqueID: 4208897411
     locked: 0

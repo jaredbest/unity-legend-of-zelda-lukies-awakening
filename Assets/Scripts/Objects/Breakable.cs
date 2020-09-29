@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour {
 
+    [Header ("Break Effects")]
+    public LootTable thisLoot;
+
+    [Header ("Animations")]
     private Animator anim;
 
     // Use this for initialization
@@ -11,19 +15,24 @@ public class Breakable : MonoBehaviour {
         anim = GetComponent<Animator> ();
     }
 
-    // Update is called once per frame
-    void Update () {
-
-    }
-
     public void Break () {
         anim.SetBool ("isBroken", true);
         StartCoroutine (BreakCo ());
+        DropLoot ();
         if (gameObject.name == "Pot") {
             FindObjectOfType<AudioManager> ().Play ("Pot Breaking");
         }
         if (gameObject.name == "Bush") {
             FindObjectOfType<AudioManager> ().Play ("Bush Breaking");
+        }
+    }
+
+    private void DropLoot () {
+        if (thisLoot != null) {
+            PowerUp current = thisLoot.LootPowerUp ();
+            if (current != null) {
+                Instantiate (current.gameObject, transform.position, Quaternion.identity);
+            }
         }
     }
 

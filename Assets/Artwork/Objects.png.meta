@@ -76,7 +76,7 @@ TextureImporter:
     second: objects_23
   - first:
       213: 5849325189442884660
-    second: objects_24
+    second: rock_1
   - first:
       213: 8753186556605219898
     second: objects_25
@@ -1042,7 +1042,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_24
+      name: rock_1
       rect:
         serializedVersion: 2
         x: 260

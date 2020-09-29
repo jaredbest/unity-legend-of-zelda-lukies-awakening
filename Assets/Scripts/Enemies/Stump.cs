@@ -10,7 +10,6 @@ public class Stump : Enemy {
     public Transform target;
     public float chaseRadius;
     public float attackRadius;
-    public Transform homePosition;
     public Animator anim;
 
     // Use this for initialization

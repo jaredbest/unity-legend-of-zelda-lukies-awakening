@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 796874023
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1123659429
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 8387997009269029421, guid: ff0b2b0d08dd44f4992e02fec35cf060, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 147955578627558519}
   - component: {fileID: 147955578627558518}
   m_Layer: 0
-  m_Name: left hit box
+  m_Name: Left Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 147955578906809281}
   - component: {fileID: 147955578906809280}
   m_Layer: 0
-  m_Name: up hit box
+  m_Name: Up Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 147955579282221127}
   - component: {fileID: 147955579282221126}
   m_Layer: 0
-  m_Name: right hit box
+  m_Name: Right Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 147955579483050135}
   - component: {fileID: 1728431171}
   - component: {fileID: 1728431173}
+  - component: {fileID: 2137840032}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -512,7 +513,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1525350117
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7152930139536384079, guid: 619ffea1bf4d9a24596a8c903654108b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -590,7 +591,7 @@ MonoBehaviour:
   startingPosition: {fileID: 11400000, guid: 040e2ee701835b14ea7a5f94b208b384, type: 2}
   playerInventory: {fileID: 11400000, guid: 4206e4e4fba03474d886fe3509728633, type: 2}
   receivedItemSprite: {fileID: 1964300365}
-  playerHit: {fileID: 11400000, guid: 69ea096d9c41ce44999223d657398403, type: 2}
+  playerHit: {fileID: 11400000, guid: 477eb277e54812a4abc023b9546efb25, type: 2}
 --- !u!95 &147955579483050128
 Animator:
   serializedVersion: 3
@@ -678,6 +679,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contextClue: {fileID: 2067463232}
   isContextActive: 0
+--- !u!114 &2137840032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147955579483050126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 74534a2d995601246b6917b275ec0744, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_IgnoreTag: 
+  m_UseImpactDirection: 0
+  m_ScaleImpactWithMass: 0
+  m_ScaleImpactWithSpeed: 0
 --- !u!1 &147955580296875053
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +740,7 @@ GameObject:
   - component: {fileID: 147955580296875059}
   - component: {fileID: 147955580296875058}
   m_Layer: 0
-  m_Name: down hit box
+  m_Name: Down Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
