@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1964300364}
   - component: {fileID: 1964300365}
   - component: {fileID: 1964300366}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Received Item
   m_TagString: Player
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067463233}
   - component: {fileID: 2067463234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Context Clue
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 147955578627558512}
   - component: {fileID: 147955578627558519}
   - component: {fileID: 147955578627558518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 147955578906809282}
   - component: {fileID: 147955578906809281}
   - component: {fileID: 147955578906809280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Up Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 147955579282221120}
   - component: {fileID: 147955579282221127}
   - component: {fileID: 147955579282221126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 1728431171}
   - component: {fileID: 1728431173}
   - component: {fileID: 2137840032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -592,6 +592,7 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: 4206e4e4fba03474d886fe3509728633, type: 2}
   receivedItemSprite: {fileID: 1964300365}
   playerHit: {fileID: 11400000, guid: 477eb277e54812a4abc023b9546efb25, type: 2}
+  projectile: {fileID: 4729585509878476259, guid: e00809883d2c0094ea41bc0a7c17ec01, type: 3}
 --- !u!95 &147955579483050128
 Animator:
   serializedVersion: 3
@@ -739,7 +740,7 @@ GameObject:
   - component: {fileID: 147955580296875052}
   - component: {fileID: 147955580296875059}
   - component: {fileID: 147955580296875058}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Down Hit Box
   m_TagString: Player
   m_Icon: {fileID: 0}

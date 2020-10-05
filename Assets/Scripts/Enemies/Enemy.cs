@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyState {
+public enum EnemyState
+{
     idle,
     walk,
     attack,
     stagger
 }
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 
-    [Header ("State Machine")]
+    [Header("State Machine")]
     public EnemyState currentState;
 
-    [Header ("Enemy Stats")]
+    [Header("Enemy Stats")]
     public FloatValue maxHealth;
     public float health;
     public string enemyName;
@@ -22,60 +24,73 @@ public class Enemy : MonoBehaviour {
     public float moveSpeed;
     public Vector2 homePosition;
 
-    [Header ("Death Effects")]
+    [Header("Death Effects")]
     public GameObject deathEffect;
     private float deathEffectDelay = 1f;
     public LootTable thisLoot;
 
-    [Header ("Death Signals")]
+    [Header("Death Signals")]
     public SignalGame roomSignal;
 
-    private void Awake () {
+    private void Awake()
+    {
         health = maxHealth.initialValue;
     }
 
-    private void OnEnable () {
+    private void OnEnable()
+    {
         transform.position = homePosition;
         health = maxHealth.initialValue;
         currentState = EnemyState.idle;
     }
 
-    private void TakeDamage (float damage) {
+    private void TakeDamage(float damage)
+    {
         health -= damage;
-        if (health <= 0) {
-            DeathEffect ();
-            DropLoot ();
-            if (roomSignal != null) {
-                roomSignal.Raise ();
+        if (health <= 0)
+        {
+            DeathEffect();
+            DropLoot();
+            if (roomSignal != null)
+            {
+                roomSignal.Raise();
             }
-            this.gameObject.SetActive (false);
+            this.gameObject.SetActive(false);
         }
     }
 
-    private void DropLoot () {
-        if (thisLoot != null) {
-            PowerUp current = thisLoot.LootPowerUp ();
-            if (current != null) {
-                Instantiate (current.gameObject, transform.position, Quaternion.identity);
+    private void DropLoot()
+    {
+        if (thisLoot != null)
+        {
+            PowerUp current = thisLoot.LootPowerUp();
+            if (current != null)
+            {
+                Instantiate(current.gameObject, transform.position, Quaternion.identity);
             }
         }
     }
 
-    private void DeathEffect () {
-        if (deathEffect != null) {
-            GameObject effect = Instantiate (deathEffect, transform.position, Quaternion.identity);
-            Destroy (effect, deathEffectDelay);
+    private void DeathEffect()
+    {
+        if (deathEffect != null)
+        {
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(effect, deathEffectDelay);
         }
     }
 
-    public void Knock (Rigidbody2D myRigidbody, float knockTime, float damage) {
-        StartCoroutine (KnockCo (myRigidbody, knockTime));
-        TakeDamage (damage);
+    public void Knock(Rigidbody2D myRigidbody, float knockTime, float damage)
+    {
+        StartCoroutine(KnockCo(myRigidbody, knockTime));
+        TakeDamage(damage);
     }
 
-    private IEnumerator KnockCo (Rigidbody2D myRigidbody, float knockTime) {
-        if (myRigidbody != null) {
-            yield return new WaitForSeconds (knockTime);
+    private IEnumerator KnockCo(Rigidbody2D myRigidbody, float knockTime)
+    {
+        if (myRigidbody != null)
+        {
+            yield return new WaitForSeconds(knockTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = EnemyState.idle;
             myRigidbody.velocity = Vector2.zero;
