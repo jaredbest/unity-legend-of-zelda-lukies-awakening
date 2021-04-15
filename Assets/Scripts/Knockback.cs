@@ -8,6 +8,7 @@ public class Knockback : MonoBehaviour
     public float thrust;
     public float knockTime;
     public float damage;
+    int run = 5;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
